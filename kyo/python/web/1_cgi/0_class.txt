@@ -1,0 +1,251 @@
+HTTP:
+    超文本传输协议, 基于TCP传输协议的应用层协议
+    1989诞生
+    1970
+        UNIX C C++ C#/java
+    1989
+        Python = C + Shell
+
+    1995左右, 互联网发展迅速
+        浏览器(HTTP客户端): IE和Netscape
+        HTTP服务器: Apache
+        HTML2.0
+        W3C组织 创建WWW标准(HTTP XML)
+
+
+访问一个网站的流程:
+    打开浏览器 -> 地址栏输入域名(网址)
+    跳到域名解析服务器上解析 -> 返回对应域名的IP地址
+    浏览器拿到解析后的IP地址再去连接对应服务器
+    服务器的Web服务程序会对浏览器的请求进行处理并且返回对应的响应
+    浏览器拿到服务器响应数据渲染(解析)到显示窗口里
+
+-------------------------------------------------------------------------------
+HTTP:
+    HTTP用于客户端和服务器之间通讯
+        请求资源的为客户端, 响应请求的为服务器
+    HTTP通过请求和响应交换达成的通讯(请求必定客户端发出, 服务器来响应)
+    HTTP是无状态的通讯
+
+    URL: 网址
+        URI 统一资源标识符
+        URL 统一资源定位符, URL是URI的子集
+        http://user:pass@jaja.cc:80/index/info/index.html?m=Home&c=Goods#Top
+
+        协议类型: http://
+        登录信息(认证): user:pass
+        服务器地址: jaja.cc(对应会有一个IP地址)
+        服务器的端口: 80
+        带层次的资源路径: /index/info/index.html
+        查询字符串: m=Home&c=Goods
+        片段标识符: Top
+
+
+    请求
+        请求行
+            格式: 请求方法 URL HTTP协议版本 CRLE(\r\n, 回车换行)
+                请求方法:
+                    GET     获取资源
+                    POST    更新资源
+                    PUT     创建资源
+                    DELETE  删除资源
+                    HEAD    获取资源头信息
+
+
+        消息报头(可选)
+            请求首部字段
+            通用首部字段
+            实体首部字段
+            其它
+        请求正文(可选)
+
+
+    响应
+        状态行
+            格式: HTTP协议版本 响应状态码 状态代码对应文本描述 CRLE(\r\n, 回车换行)
+                响应状态码:
+                    1xx     提示信息
+                    2xx     成功
+                    3xx     重定向
+                    4xx     客户端错误
+                    5xx     服务端错误
+
+        消息报头(可选)
+            响应首部字段
+            通用首部字段
+            实体首部字段
+            其它
+        响应正文(可选)
+
+-------------------------------------------------------------------------------
+HTTP首部
+    HTTP1.1首部
+        通用首部字段    请求和响应都可以使用的首部
+            Cache-Control       控制缓存的行为
+            Connection          连接的管理
+            Date                创建报文的日期时间
+            Pragma              报文指令
+            Trailer             报文末端的首部
+            Transfer-Encoding   指定报文主体的传输编码方式
+            Upgrade             升级为其它协议
+            Via                 代理服务嚣的相关信息
+            Warning             错误通知
+
+        请求首部字段    请求报文使用的首部，补充请求的附加内容
+            Accept              用户代理可处理的媒体媒体类型
+            Accept-Charset      优先的字符集
+            Accept-Encoding     优先的内容编码
+                gzip            使用GNU zip压缩程序
+                compress        Unix压缩程序
+                deflate         使用zlib及deflate压缩算法
+                identity        不执行压缩
+            Accept-Language     优先的语言(自然语言)
+            Authorization       Web认证信息
+            Expect              期待服务嚣的特定行为
+            Form                用户的电子邮箱地址
+           Host                请求资源所在服务嚣
+            If-Match            比较实体标记(ETag)
+            If-Modified-Since   比较资源更新时间
+            If-None-Match       比较实体标记(与If-Match相反)
+            If-Range            资源未更新时发送实体Byte的范围请求
+            If-Unmodified-Since 比较资源更新时间(与If-Modified-Since相反)
+            Max-Forwards        最大传输逐跳数
+            Proxy-Authorization 代理服务嚣要求客户端的认证信息
+            Range               实体的字节范围请求
+            Referer             对请求的URL的原始获取方
+            TE                  传输编码的优先级
+            User-Agent          HTTP客户端程序的信息
+
+        响应首部字段    响应报文使用的首部，补充响应的附加内容
+            Accept-Ranges       是否接受字节范围请求
+            Age                 推算资源创建经过的时间
+            ETag                资源的匹配信息
+            Location            令客户端重定向至指定URL
+            Proxy-Authenticate  代理服务嚣对客户端的认证信息
+            Retry-After         对再次发起请求的时机要求
+            Server              HTTP服务嚣的安装信息
+            Vary                代理服务嚣缓存的管理信息
+            WWW-Authenticate    服务嚣对客户端的认证信息
+
+        实体首部字段    请求和响应都可使用的首部，补充资源内容更新时间等信息
+            Allow               资源可支持的HTTP方法
+            Content-Encoding    实体主体适用的编码方式
+                gzip/compress/deflate/identity
+            Content-Language    实体主体的自然语言
+            Content-Length      实体主体的大小(单位:字节)
+            Content-Location    替代对应资源的URL
+            Content-MD5         实体主体的报文摘要
+            Content-Range       实体主体的位置范围
+            Content-Type        实体主体的媒体类型
+            Expires             实体主体过期的日期时间
+            Last-Modified       资源的最后修改时间时间
+
+    非正式首部字段归纳于RFC4229 HTTP Header Field Registations
+        Cookie              请求首部字段，客户端发送给服务嚣
+        Set-Cookie          响应首部字段，服务嚣发送给客户端
+            NAME=VALUE      Cookie的名称和值
+            expires         Cookie的有效期
+            path            限制指定Cookie的发送范围的文件目录
+            domain          指定域名做到结尾匹配一致
+            Secure          HTTPS安全连接时才发送
+            HttpOnly        使Javascript无法获取Cookie
+        Content-Disposition MIME协议的扩展，控制浏览嚣是否下载
+
+-------------------------------------------------------------------------------
+Web服务器:
+    http服务器只是处理http请求并且对应发送回应
+    Web服务器必须是http服务器, 但可以请求回应中间加入自定义逻辑
+
+    Apache(LAMP - Linux Apache MySQL/MongoDB PHP/Python/Perl)
+        安装Apache2:
+            sudo apt install apache2 -y
+
+    Nginx(LNMP)
+
+    IIS
+
+    Tomcat(Java)
+
+-------------------------------------------------------------------------------
+Python + Web:
+
+    安装Apache2服务器: sudo apt install apache2 -y
+
+
+Web编程:
+    浏览器 ->(HTTP) Web服务器 ->(CGI) Web应用程序
+
+    CGI(通用网关接口):
+        CGI是规范Web服务器与Web应用程序之间的通讯
+        CGI规范Web服务器执行Web应用程序,
+            将HTTP的请求封装成环境变量传入Web应用程序
+            将HTTP的请求正文作为Web应用程序的标准输入
+
+        CGI Web应用程序的标准输出作为HTTP响应数据
+        CGI 规范Web应用程序必须指定响应首部(Content-Type), 告诉浏览器此次响应是数据是什么类型
+
+
+配置Apache支持CGI(默认不支持CGI):
+    安装Apache执行脚本的权限模块: sudo a2enmod mpm_prefork cgi
+    配置Apache CGI虚拟主机:
+        sudo cp  /etc/apache2/sites-enabled/000-default.conf /etc/apache2/sites-enabled/cgi.conf
+        编辑/etc/apache2/sites-enabled/cgi.conf(使用vim打开):
+
+        <VirtualHost *:80>
+            #设置此虚拟主机的名字
+            ServerName cgi.com
+            #设置虚拟主机的家目录
+            DocumentRoot /kyo/web/1_cgi
+            #设置虚拟主机家目录的选项
+            <Directory /kyo/web/1_cgi>
+                #设置此虚拟主机支持CGI功能, 还支持目录列表和符号链接
+                Options ExecCGI Indexes FollowSymLinks
+                #设置虚拟主机的默认文件
+                DirectoryIndex index.py index.html
+                #设置虚拟主机的访问权限(以下设置允许所有文件)
+                Require all granted
+            </Directory>
+            #设置执行脚本的后缀名
+            AddHandler cgi-script .sh .py .so
+
+            #设置访问日志和错误日志的路径
+            ErrorLog ${APACHE_LOG_DIR}/error.log
+            CustomLog ${APACHE_LOG_DIR}/access.log combined
+        </VirtualHost>
+
+
+    配置hosts文件:
+        sudo vim /etc/hosts
+            127.0.0.1 cgi.com
+
+    重启apache2服务:
+        sudo service apache2 restart
+
+
+    Python CGI应用程序(vim 1_cgi.py):
+        #!/usr/bin/env python3
+
+        print("Content-Type: text/html; charset=utf-8\n")
+
+        print("<h1>hello world</h1>")
+
+
+    必须给CGI应用程序文件设置可执行权限:
+        chmod +x 1_cgi.py
+
+    测试:
+        到浏览器地址栏输入: cgi.com/1_cgi.py
+
+
+    CGI环境变量(HTTP请求数据):
+        REQUEST_METHOD      标识请求方法(GET/POST/PUT/DELETE)
+        QUERY_STRING        URL的查询字符串
+        HTTP_ACCEPT         此次请求什么文件类型
+        HTTP_USER_AGENT     客户端标识
+        HTTP_HOST           请求服务器的域名或IP
+        SERVER_NAME         标识Web服务器的主机名
+        SCRIPT_FILENAME     请求服务器的哪个脚本文件的绝对路径
+        SCRIPT_NAME         请求服务器的哪个脚本
+        REMOTE_ADDR         浏览器所在计算机的IP地址(客户端的IP)
+        REQUEST_URI         标识请求资源路径
+

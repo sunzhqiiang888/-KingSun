@@ -1,0 +1,219 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+    <title>iprintf show</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- 最新版本的 Bootstrap 核心 CSS 文件 -->
+    <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/animate.css" />
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<!-- <div class="navbar navbar-default navbar-static-top" role="navigation">    [> 置于页面顶部的导航栏 <] -->
+<div id="header" class="navbar navbar-inverse navbar-fixed-top" role="navigation">     <!-- 固定不变永远置顶的导航栏 -->
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a href="index.php" class="navbar-brand">输出自己</a>
+        </div>
+
+        <div class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+                <li class="active"><a href="index.html">首页</a></li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">文章<b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#">Java</a></li>
+                        <li><a href="#">C</a></li>
+                        <li><a href="#">PHP</a></li>
+                        <li class="divider"></li>
+                        <li class="dropdown-header">Linux</li>
+                        <li><a href="#">RedHat</a></li>
+                        <li><a href="#">Ubuntu</a></li>
+                    </ul>
+                </li>
+                <li><a href="#">视频</a></li>
+                <li><a href="#">关于</a></li>
+            </ul>
+            <form class="navbar-form navbar-left" role="search">
+                <div class="form-group">
+                    <input type="text" class="form-control" placeholder="Search">
+                </div>
+            </form>
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="#">留言</a></li>
+                <li class="active"><a href="#">登录</a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<div id="right_tool">
+    <ul style="list-style:none">
+    <li class="well"><i class="glyphicon glyphicon-chevron-up"></i></li>
+    <li class="well right_tool_list"><i class="glyphicon glyphicon-list"></i></li>
+    <li class="well"><i class="glyphicon glyphicon-heart"></i></li>
+    </ul>
+</div>
+
+<div id="prev_tool" class="well">
+    <i class="glyphicon glyphicon-chevron-left"></i>
+</div>
+
+<div id="next_tool" class="well">
+    <i class="glyphicon glyphicon-chevron-right"></i>
+</div>
+
+<div id="right_list" class="hide animated slideLeft">
+    <ul class="list-group">
+        <li class="list-group-item">Java</li>
+        <li class="list-group-item">PHP</li>
+        <li class="list-group-item">C</li>
+        <li class="list-group-item">C++</li>
+        <li class="list-group-item">SHELL</li>
+    </ul>
+    <ul class="list-group">
+        <li class="list-group-item">Java</li>
+        <li class="list-group-item">PHP</li>
+        <li class="list-group-item">C</li>
+        <li class="list-group-item">C++</li>
+        <li class="list-group-item">SHELL</li>
+    </ul>
+</div>
+
+<div class="container" style="margin-top:70px">
+
+    <div class="path panel panel-default panel-body">
+        根目录&emsp;/&emsp;文章&emsp;/&emsp;文章内容
+    </div>
+
+    <div class="panel panel-default panel-body col-md-12" style="min-height:400px">
+      <h3>Example page header <small>Subtext for header</small></h3>
+      <div class="barcode"><span class="glyphicon glyphicon-qrcode"></span></div>
+      <div class="row" style="padding-bottom:10px;">
+          <span class="col-md-6 text-muted">2015-08-20</span>
+          <span class="col-md-6 text-muted text-right">13 条评论</span>
+      </div>
+
+      <div style="min-height:120px;border-top:1px #EEE solid;border-bottom:1px #EEE solid;padding:10px;">
+      <img src="http://images.china.cn/attachement/jpg/site1000/20150821/6c0b840a258b174110364c.jpg" alt="smiley-face" class="img-thumbnail" style="max-width:100%;height:auto" />
+          <p>
+      Data API 方式
+
+如果使用 data-* API 方式，任何参数都需要以 data 属性的形式出现。所有以 data-* API 传递的参数都将与默认参数合并。通过传递 JSON 对象可以改变 headroom.js 默认设置的 CSS class。
+          </p>
+          <p>
+用CSS实现右对齐，这似乎是一个太过基础的例子啊，不过越基础越容易出错，有时候甚至找不到头绪了，这也是我本人在刚开始写CsS的时候所遇到的问题，今天才次向CSS初学者演示一款极其简单的CSS右对齐代码，希望对你的前端设计开发有所帮助。代码如下：
+          </p>
+          <p>
+其实这里最主要的一个CSS属性就是float:right，也就是浮动属性：右对齐，也可以改成float:left，改成这样后，想一想，你可以扩展出许多的网页布局，比如最基础的网站导航菜单、友情链接列表、一行两列的文字列表等。
+          </p>
+      </div>
+
+      <div class="row" style="padding-top:10px;">
+          <span class="col-md-10">
+              <button type="button" class="btn btn-default label label-default">Java</button>
+              <button type="button" class="btn btn-default label label-default">PHP</button>
+              <button type="button" class="btn btn-default label label-default">C</button>
+              <button type="button" class="btn btn-default label label-default">C++</button>
+          </span>
+      </div>
+    </div>
+
+    <div class="panel panel-default panel-body col-md-12" style="min-height:400px">
+      <div class="page-header">
+        <h3>评论</h3>
+      </div>
+      <div class="row">
+        <div class="col-md-2 text-right"><img src="brcode.png" style="width: 100px; height: 80px;"></div>
+        <div class="col-md-10">
+          <h3>神人的回复</h3>
+          2018年1月15日 下午9:03
+        </div>
+        <div class="col-md-12"><h3>
+          您好，这是一条评论。
+          要删除评论，请先登录，然后再查看这篇文章的评论。登录后您可以看到编辑或者删除评论的选项。
+          </h3>
+        </div>
+        <div class="col-md-12 text-right">
+          <input type="button" class="btn btn-default" value="回复">
+        </div>
+      </div>
+      <hr>
+
+      <div class="row">
+        <div class="col-md-2 text-right"><img src="brcode.png" style="width: 100px; height: 80px;"></div>
+        <div class="col-md-10">
+          <h3>神人的回复</h3>
+          2018年1月15日 下午9:03
+        </div>
+        <div class="col-md-12"><h3>
+          您好，这是一条评论。
+          要删除评论，请先登录，然后再查看这篇文章的评论。登录后您可以看到编辑或者删除评论的选项。
+          </h3>
+        </div>
+        <div class="col-md-12 text-right">
+          <input type="button" class="btn btn-default" value="回复">
+        </div>
+      </div>
+      <hr>
+      <div class="row">
+        <div class="col-md-2 text-right"><img src="brcode.png" style="width: 100px; height: 80px;"></div>
+        <div class="col-md-10">
+          <h3>神人的回复</h3>
+          2018年1月15日 下午9:03
+        </div>
+        <div class="col-md-12"><h3>
+          您好，这是一条评论。
+          要删除评论，请先登录，然后再查看这篇文章的评论。登录后您可以看到编辑或者删除评论的选项。
+          </h3>
+        </div>
+        <div class="col-md-12 text-right">
+          <input type="button" class="btn btn-default" value="回复">
+        </div>
+      </div>
+      <hr>
+      <div class="row">
+        <div class="col-md-2 text-right"><img src="brcode.png" style="width: 100px; height: 80px;"></div>
+        <div class="col-md-10">
+          <h3>神人的回复</h3>
+          2018年1月15日 下午9:03
+        </div>
+        <div class="col-md-12"><h3>
+          您好，这是一条评论。
+          要删除评论，请先登录，然后再查看这篇文章的评论。登录后您可以看到编辑或者删除评论的选项。
+          </h3>
+        </div>
+        <div class="col-md-12 text-right">
+          <input type="button" class="btn btn-default" value="回复">
+        </div>
+      </div>
+      <hr>
+      <div class="page-header">
+        <h3>发表评论</h3>
+      </div>
+      <div class="text-center">
+      <form action="">
+        <textarea class="form-control" id="" name="" cols="30" rows="10"></textarea>
+        <button type="submit" class="btn btn-primary" style="margin-top: 20px;">提交评论</button>
+      </form>
+      </div>
+    </div>
+</div>
+
+<div id="footer">
+</div>
+
+<script type="text/javascript" src="js/jquery-2.1.4.min.js"></script>
+<script type="text/javascript" src="js/bootstrap.min.js"></script>
+<script type="text/javascript" src="js/headroom.min.js"></script>
+<script type="text/javascript" src="js/main.js"></script>
+</body>
+</html>

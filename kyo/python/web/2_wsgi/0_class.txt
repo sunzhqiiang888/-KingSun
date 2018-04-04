@@ -1,0 +1,28 @@
+CGI 由于每次请求都会开新进程去运行Web应用程序, 消耗操作系统资源非常大(导致服务器性能低)
+
+FastCGI
+    创建和维护进程池, 通过进程池循环处理请求(使用进程池来执行Web应用程序)
+    规范Web服务器和Web应用程序之间通讯, 通过套接字来进行通讯
+
+WSGI
+    是Python专属的Web编程规范
+    WSGI的服务器:
+        Python自带(只是测试使用)
+        Apache的mod_wsgi模板
+        uWSGI
+            uWSGI + nginx
+
+Python3如何访问MySQL:
+    pymysql
+    mysqlclient (推荐使用)
+
+    安装:
+        sudo apt install libmysqlclient-dev -y
+        pip3 install mysqlclient
+
+    测试:
+        import MySQLdb
+
+
+
+

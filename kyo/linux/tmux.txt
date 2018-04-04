@@ -1,0 +1,50 @@
+tmux: 终端扩展工具
+    默认终端只有一个命令行, 在此命令行运行vim就不能运行命令
+    tmux解决的问题:
+        窗口    解决了默认终端只有一个命令行
+        窗格    分屏显示, 在同一屏打开多个命令行
+        会话    保存会话, 系统级别的会话
+                客户端断电, 重新连接可恢复会话
+        终端复制 终端滚动
+
+    安装:
+        sudo apt install tmux -y
+
+    配置:
+        ~/.tmux.conf
+
+    运行: tmux
+
+    快捷键前缀: ctrl + b
+
+    会话:
+        运行一个tmux即是创建一个新会话
+        切换会话: ctrl + b s
+        唤醒会话: tmux attach -t 会话名称
+        保存会话: ctrl + b d
+
+    窗口:
+        创建窗口: ctrl + b c
+        切换窗口:
+            alt + 1 ~ 9
+            ctrl + b w
+        关闭窗口: ctrl + b &
+
+    窗格:
+        创建窗格:
+            横向: ctrl + b -
+            竖向: ctrl + b |
+        切换窗格: ctrl + b j/k/l/h
+        关闭窗格: ctrl + b x
+
+    复制(跨终端):
+        依赖xclip包:
+            sudo apt install xclip -y
+
+        进入vi复制模式: ctrl + b y
+            hjkl    方向键
+            v       选中
+            y       复制
+
+        粘贴: ctrl + b p
+

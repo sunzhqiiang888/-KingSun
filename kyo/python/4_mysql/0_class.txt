@@ -1,0 +1,158 @@
+随机学校管理平台的数据:
+    1. 将oa.sql文件导入到mysql并且看懂oa.sql文件的业务逻辑 (参考oa.sql)
+    2. 使用封装Db模块向oa数据库中任意表添加一条记录 (参考db.py)
+    3. 使用python3实现批量添加随机数据的程序 (参考oadata.py)
+        随机顺序:
+            school -> class/course/teacher
+                   -> lecture -> dispatch -> student -> choose -> score
+
+
+/kyo/tools/ajing.sql.tar.xz   全国地址数据库
+
+
+自己写的库路径: /kyo/libs
+    db.py       数据库操作的封装类
+    pargs.py    程序参数解析的封装
+
+添加Python模块搜索路径:
+    方法一: 永久生效, 不需要在代码中追加路径
+        将以下代码追加到: ~/.bashrc
+            echo 'export PYTHONPATH=/kyo/libs' >> ~/.bashrc
+
+        重启终端才能生效, 在任意位置都可以直接导入/kyo/libs下的模块
+
+    方法二:
+        在import前面给sys.path追加库路径
+            sys.path.append("/kyo/libs")
+            from db import Db
+
+练习题:
+创建员工表:
+    create table emp (
+        empno int primary key auto_increment,
+        ename varchar(20),
+        sex char(1),
+        birthday date,
+        hiredate date,
+        sal decimal(10,2),
+        deptno tinyint(1),
+        managerno int);
+
+    生成数据:
+        insert into emp values (1,'boss','m','1964-08-08','1995-01-01','20000','1','1'),
+        (2,'zhangsan','m','1967-04-05','1995-04-11','15000','2','1'),
+        (3,'lisi','f','1973-01-28','1998-11-21','13000','3','1'),
+        (4,'wangwu','f','1975-06-03','1999-12-12','12000','4','1'),
+        (5,'maliu','m','1982-08-18','2001-07-03','8000','2','2'),
+        (6,'tianqi','f','1983-02-15','2002-11-01','7000','2','2'),
+        (7,'mark','m','1984-08-12','2003-10-02','6500','3','3'),
+        (8,'john','m','1985-09-14','2005-04-03','6000','3','3'),
+        (9,'mm','f','1990-06-08','2008-09-13','4000','4','4');
+
+创建部门表:
+    create table dept (deptno tinyint(1), deptname varchar(30),location varchar(50));
+
+    生成数据:
+        insert into dept values (1,'manager','beijing'), (2,'it','shenzhen'), (3,'sale','shanghai'), (4,'services','guangzhou');
+
+写出以下需求对应的SQL:
+    显示员工所有信息包含所属上级名称及所属部门名称
+    把wangwu性别改成m
+    wangwu的工资加500
+    mark由3号部门换成2号部门，同时工资加1000,上级管理者也改为2号部门的头
+        手动查询2号部门的头no:
+        自动查询2号部门的头no:
+    2号部门的工资涨10%
+    工资就john和mark涨10%,其它人不涨
+    工资都涨10%，john和mark犯错误，就他们不涨
+    查询所有男员工的姓名和工资
+    查询工资大于8000的员工的所有信息
+    查询工资在4000到8000之间的员工的所有信息（包含4000和8000的)
+    查询入职时间在2001那年的员工的姓名和工资
+    查询2002年之后(包括2002年)入职的，并且工资大于8000的员工姓名
+    统计工资总额，最大工资，最小工资，平均工资
+    找出工资最低的三个人的姓名和工资
+    找出工资最高的三个人的姓名和工资
+    找出工资最低的女员工的姓名和工资
+    找出工资从高到低第三到第五的人的姓名和工资
+    统计每个部门的人数
+    统计男，女员工各有多少人
+    统计每个部门里男女员工各有多少个
+    查找部门人数大于2的部门号和人数
+    查找部门人数大于2的部门号 部门名称和人数
+    求每个部门的工资总额，最大工资，最小工资，平均工资
+    查出员工姓名和其对应的工资，部门名，部门所在地，并显示
+    查出比wangwu工资高的人的姓名和工资
+
+-------------------------------------------------------------------------------
+时间日期
+    time模块
+        time.time           返回1970年1月1号0点0分0秒到现在有多少浮点秒数
+        time.localtime      返回本地时区的time.struct_time结构
+        time.struct_time    时间日期结构
+            tm_year         4位数字的年
+            tm_mon          月 1-12
+            tm_mday         日 1-31
+            tm_hour         小时 0-23
+            tm_min          分钟 0-59
+            tm_sec          秒 0-61(60 61为闰秒)
+            tm_wday         一周的第几天 0-6(0为周日)
+            tm_yday         一年的第几天 1-366
+            tm_isdst        夏令时
+
+        time.mktime         将time.struct_time结构转换成时间戳
+        time.strftime       格式化输出time.struct_time结构
+            %y              两位数年
+            %Y              4位数年
+            %m              月份    01-12
+            %d              月内的一天
+            %H              24小时制 0-23
+            %I              12小时制 01-12
+            %M              分钟数 00-59
+            %a              本地简化星期名称
+            %A              本地完整星期名称
+            %b              本地简化月份名称
+            %B              本地完整月份名称
+            %p              本地AM/PM的等价符
+            %U              一年中星期数(00-53), 星期天为星期的开始
+            %W              一年中星期数(00-53), 星期一为星期的开始
+            %w              星期 0-6  0为星期天
+            %F              2015-10-23格式输出日期
+
+            更多参考帮助: man strftime
+
+        time.clock          返回当前CPU时间
+        time.sleep          延时
+
+    datetime模块
+        返回当前日期时间的datetime对象
+            dt = datetime.datetime.now()
+
+        返回指定日期时间的datetime对象
+            dt = datetime.datetime(2017, 3, 29, 12, 20)
+
+        字符串日期转datetime对象
+            dt = datetime.datetime.strptime('2017-03-12', '%Y-%m-%d')
+
+        时间戳转datetime对象
+            dt = datetime.datetime.fromtimestamp(time.time())
+
+        dt.timetuple()      返回当前日期时间的时间元组(time.struct_time)
+        dt.timestamp()      返回当前日期时间的时间戳
+        dt.strftime('%F')   返回格式化日期时间字符串
+        dt.replace(2017)    替换datetime对象中日期时间
+
+        datetime对象支持比较操作符
+            datetime.datetime.now() > datetime.datetime(2018, 10, 10)
+            datetime.datetime.now() < datetime.datetime(2018, 10, 10)
+            datetime.datetime.now() == datetime.datetime(2018, 10, 10)
+            datetime.datetime.now() != datetime.datetime(2018, 10, 10)
+
+        datetime对象加减运算符
+            dt = datetime.datetime.now()
+            dt - datetime.datetime(2018, 10, 10)    计算两个日期差
+            dt + datetime.timedelta(days=10)        返回10天后的datetime对象
+            dt + datetime.timedelta(days=-10)       返回10天前的datetime对象
+            dt + datetime.timedelta(hours=-10)      返回10小时前的datetime对象
+            dt + datetime.timedelta(seconds=120)    返回120秒后的datetime对象
+
