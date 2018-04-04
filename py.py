@@ -4,6 +4,7 @@
 def a():
     print("hello git")
     print("hello word")
+    print("hello python")
     return a
 
 
