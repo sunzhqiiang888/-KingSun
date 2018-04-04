@@ -2,6 +2,7 @@
 
 
 def a():
+    print("hello word")
     return a
 
 
