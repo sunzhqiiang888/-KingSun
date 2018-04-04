@@ -3,6 +3,7 @@
 
 def a():
     print("hello git")
+    print("hello word")
     return a
 
 
